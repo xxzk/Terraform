@@ -77,19 +77,5 @@ resource "vsphere_virtual_machine" "vm_1" {
 
   clone {
     template_uuid   = data.vsphere_virtual_machine.template.id
-
-    customize {
-      linux_options {
-        host_name = "Eric_Rocket-1"
-        domain    = "Eric_Rocket-1"
-      }
-
-      network_interface {
-        ipv4_address = "192.168.200.126"
-        ipv4_netmask = 24
-      }
-
-      ipv4_gateway = "192.168.200.254"
-    }
   }
 }
