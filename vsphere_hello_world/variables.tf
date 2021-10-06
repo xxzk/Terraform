@@ -45,5 +45,13 @@ variable "port_group" {
 
 
 variable "template" {
-  default = "Default_CentOS_7.9"
+  default = "DF-CentOS-79"
+}
+
+variable "vm_name" {
+  default = [
+    "Eric_Rocket-1",
+    "Eric_Rocket-2",
+    "Eric_Rocket-3"
+  ]
 }
