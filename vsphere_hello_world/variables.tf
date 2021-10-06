@@ -50,9 +50,9 @@ variable "template" {
 
 variable "vm_name" {
   default = [
-    "Rocket-1",
-    "Rocket-2",
-    "Rocket-3"
+    "Eric-Rocket-15555555",
+    "Eric-Rocket-2",
+    "Eric-Rocket-3"
   ]
 }
 
