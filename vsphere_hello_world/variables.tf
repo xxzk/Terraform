@@ -42,3 +42,8 @@ variable "port_group" {
     "VM Network"
   ]
 }
+
+
+variable "template" {
+  default = "Default_CentOS_7.9"
+}

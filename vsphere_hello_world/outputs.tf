@@ -17,3 +17,8 @@ output "port_group_list" {
   description	= "The Network."
   value		= data.vsphere_network.port_group
 }
+
+output "Default_CentOS_Template" {
+  description = "Used template id."
+  value       = data.vsphere_virtual_machine.template
+}

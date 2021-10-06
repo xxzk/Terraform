@@ -25,10 +25,15 @@ data "vsphere_datastore" "datastore" {
   datacenter_id = data.vsphere_datacenter.dc.id
 }
 
-data "vsphere_network" "network" {
-  count		= "${length(var.network)}"
+data "vsphere_network" "port_group" {
+  count		= "${length(var.port_group)}"
   name		= "${var.port_group[count.index]}"
   datacenter_id = data.vsphere_datacenter.dc.id
+}
+
+data "vsphere_virtual_machine" "template" {
+  name            = "${var.template}"
+  datacenter_id   = data.vsphere_datacenter.dc.id
 }
 
 ### ======= END OF DATA =======
