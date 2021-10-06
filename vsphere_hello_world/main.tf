@@ -40,7 +40,7 @@ data "vsphere_virtual_machine" "template" {
 
 
 resource "vsphere_virtual_machine" "vm_1" {
-  name              = "Eric_Rocket-1"
+  name              = "${var.vm_name[0]}"
   resource_pool_id  = "${data.vsphere_host.host[0].resource_pool_id}"
   datastore_id      = "${data.vsphere_datastore.datastore[0].id}"
   guest_id          = "${data.vsphere_virtual_machine.template.guest_id}"
@@ -77,5 +77,19 @@ resource "vsphere_virtual_machine" "vm_1" {
 
   clone {
     template_uuid   = data.vsphere_virtual_machine.template.id
+
+    customize {
+      linux_options {
+        host_name = "${var.vm_name[0]}"
+        domain    = "${var.vm_name[0]}"
+      }
+
+      network_interface {
+        ipv4_address = "${var.ipv4_address[0]}"
+        ipv4_netmask = "${var.ipv4_address_prefix}"
+      }
+
+      ipv4_gateway = "${var.ipv4_gateway}"
+    }
   }
 }

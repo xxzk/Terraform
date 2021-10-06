@@ -50,8 +50,28 @@ variable "template" {
 
 variable "vm_name" {
   default = [
-    "Eric_Rocket-1",
-    "Eric_Rocket-2",
-    "Eric_Rocket-3"
+    "Rocket-1",
+    "Rocket-2",
+    "Rocket-3"
   ]
+}
+
+variable "ipv4_address" {
+  default = [
+    "192.168.200.126",
+    "192.168.200.127",
+    "192.168.200.128",
+  ]
+}
+
+variable "ipv4_address_prefix" {
+  default = "24"
+}
+
+variable "ipv4_gateway" {
+  default = "192.168.200.254"
+}
+
+variable "ipv4_dns" {
+  default = "1.1.1.1"
 }
