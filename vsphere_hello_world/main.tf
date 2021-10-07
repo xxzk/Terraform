@@ -56,7 +56,7 @@ resource "vsphere_virtual_machine" "vm_1" {
 
     customize {
       linux_options {
-        host_name = "${var.vm_name[0]}"
+        host_name = "${var.vm_domain[0]}"
         domain    = "${var.vm_domain[0]}"
       }
 
@@ -65,7 +65,8 @@ resource "vsphere_virtual_machine" "vm_1" {
         ipv4_netmask = "${var.ipv4_address_prefix}"
       }
 
-      ipv4_gateway = "${var.ipv4_gateway}"
+      ipv4_gateway      = "${var.ipv4_gateway}"
+      dns_server_list   = "${var.ipv4_dns}"
     }
   }
 

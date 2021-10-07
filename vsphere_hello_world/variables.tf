@@ -81,5 +81,5 @@ variable "ipv4_gateway" {
 }
 
 variable "ipv4_dns" {
-  default = "1.1.1.1"
+  default = ["1.1.1.1","8.8.8.8"]
 }
