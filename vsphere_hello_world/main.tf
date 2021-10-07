@@ -41,6 +41,7 @@ data "vsphere_virtual_machine" "template" {
 
 resource "vsphere_virtual_machine" "vm_1" {
   name              = "${var.vm_name[0]}"
+  folder            = "${var.folder}"
   resource_pool_id  = "${data.vsphere_host.host[0].resource_pool_id}"
   datastore_id      = "${data.vsphere_datastore.datastore[0].id}"
   guest_id          = "${data.vsphere_virtual_machine.template.guest_id}"

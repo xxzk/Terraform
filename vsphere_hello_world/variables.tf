@@ -66,6 +66,10 @@ variable "vm_domain" {
   ]
 }
 
+variable "folder" {
+  default = "Eric_LAB"
+}
+
 variable "ipv4_address" {
   default = [
     "192.168.200.126",
