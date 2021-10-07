@@ -4,13 +4,11 @@ variable "vsphere_user" {
   sensitive   = true
 }
 
-
 variable "vsphere_password" {
   description = "vCenter Login User Password."
   type        = string
   sensitive   = true
 }
-
 
 variable "vsphere_server" {
   description = "vCenter IP Address."
@@ -18,6 +16,11 @@ variable "vsphere_server" {
   sensitive   = true
 }
 
+variable "vsphere_datacenter" {
+  description   = "vSphere datacenter name."
+  type          = string
+  default       = "K8s-LAB"
+}
 
 variable "hosts" {
   description = "The ESXi hosts name list in vSphere."
@@ -42,7 +45,6 @@ variable "port_group" {
     "VM Network"
   ]
 }
-
 
 variable "template" {
   default = "DF-CentOS-79"

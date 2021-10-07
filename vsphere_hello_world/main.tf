@@ -10,7 +10,7 @@ provider "vsphere" {
 ### ======= BEGIN OF DATA =======
 
 data "vsphere_datacenter" "dc" {
-  name = "K8s-LAB"
+  name = "${var.vsphere_datacenter}"
 }
 
 data "vsphere_host" "host" {
