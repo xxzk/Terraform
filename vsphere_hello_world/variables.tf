@@ -50,7 +50,15 @@ variable "template" {
 
 variable "vm_name" {
   default = [
-    "Eric-Rocket-15555555",
+    "Eric_Rocket-1",
+    "Eric_Rocket-2",
+    "Eric_Rocket-3"
+  ]
+}
+
+variable "vm_domain" {
+  default = [
+    "Eric-Rocket-1",
     "Eric-Rocket-2",
     "Eric-Rocket-3"
   ]

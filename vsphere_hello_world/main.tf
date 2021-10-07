@@ -51,6 +51,24 @@ resource "vsphere_virtual_machine" "vm_1" {
     adapter_type  = "${data.vsphere_virtual_machine.template.network_interface_types[0]}"
   }
 
+  clone {
+    template_uuid   = data.vsphere_virtual_machine.template.id
+
+    customize {
+      linux_options {
+        host_name = "${var.vm_name[0]}"
+        domain    = "${var.vm_domain[0]}"
+      }
+
+      network_interface {
+        ipv4_address = "${var.ipv4_address[0]}"
+        ipv4_netmask = "${var.ipv4_address_prefix}"
+      }
+
+      ipv4_gateway = "${var.ipv4_gateway}"
+    }
+  }
+
   disk {
     unit_number       = 0
     label             = "${data.vsphere_virtual_machine.template.disks.0.label}"
@@ -73,23 +91,5 @@ resource "vsphere_virtual_machine" "vm_1" {
     size              = "${data.vsphere_virtual_machine.template.disks.2.size}"
     eagerly_scrub     = "${data.vsphere_virtual_machine.template.disks.2.eagerly_scrub}"
     thin_provisioned  = "${data.vsphere_virtual_machine.template.disks.2.thin_provisioned}"
-  }
-
-  clone {
-    template_uuid   = data.vsphere_virtual_machine.template.id
-
-    customize {
-      linux_options {
-        host_name = "${var.vm_name[0]}"
-        domain    = "${var.vm_name[0]}"
-      }
-
-      network_interface {
-        ipv4_address = "${var.ipv4_address[0]}"
-        ipv4_netmask = "${var.ipv4_address_prefix}"
-      }
-
-      ipv4_gateway = "${var.ipv4_gateway}"
-    }
   }
 }
