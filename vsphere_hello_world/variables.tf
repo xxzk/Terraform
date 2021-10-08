@@ -52,17 +52,17 @@ variable "template" {
 
 variable "vm_name" {
   default = [
-    "Eric_Rocket-1",
-    "Eric_Rocket-2",
-    "Eric_Rocket-3"
+    "Terraform_Test-1",
+    "Terraform_Test-2",
+    "Terraform_Test-3"
   ]
 }
 
 variable "vm_domain" {
   default = [
-    "Eric-Rocket-1",
-    "Eric-Rocket-2",
-    "Eric-Rocket-3"
+    "Terraform-Test-1",
+    "Terraform-Test-2",
+    "Terraform-Test-3"
   ]
 }
 
