@@ -42,6 +42,7 @@ data "vsphere_virtual_machine" "template" {
 ### ======= VM_1 BEGIN =======
 
 resource "vsphere_virtual_machine" "vm_1" {
+  lifecycle         {prevent_destroy = true}
   name              = "${var.vm_name[0]}"
   folder            = "${var.folder}"
   resource_pool_id  = "${data.vsphere_host.host[0].resource_pool_id}"
@@ -104,6 +105,7 @@ resource "vsphere_virtual_machine" "vm_1" {
 ### ======= VM_2 BEGIN =======
 
 resource "vsphere_virtual_machine" "vm_2" {
+  lifecycle         {prevent_destroy = true}
   name              = "${var.vm_name[1]}"
   folder            = "${var.folder}"
   resource_pool_id  = "${data.vsphere_host.host[0].resource_pool_id}"
@@ -166,6 +168,7 @@ resource "vsphere_virtual_machine" "vm_2" {
 ### ======= VM_3 BEGIN =======
 
 resource "vsphere_virtual_machine" "vm_3" {
+  lifecycle         {prevent_destroy = true}
   name              = "${var.vm_name[2]}"
   folder            = "${var.folder}"
   resource_pool_id  = "${data.vsphere_host.host[0].resource_pool_id}"
